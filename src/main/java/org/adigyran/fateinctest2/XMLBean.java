@@ -5,7 +5,9 @@
  */
 package org.adigyran.fateinctest2;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Scanner;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -30,13 +32,13 @@ public class XMLBean implements Serializable{
   private String fileContent;
  
   public void upload() {
-    //try {
-    ///  fileContent = new Scanner(file.getInputStream())
-    //      .useDelimiter("\\A").next();
-    //} catch (IOException e) {
+    try {
+      fileContent = new Scanner(file.getInputStream()).useDelimiter("\\A").next();
+    } catch (IOException e) {
       // Error handling
-   // }
+    }
   }
+  
  
   public Part getFile() {
     return file;
