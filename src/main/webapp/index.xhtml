@@ -15,15 +15,15 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <h:form>
-    <h:inputText id="userNumber" size="2" maxlength="2" value="#{UserNumberBean.userNumber}" />
+    <h:inputText id="userNumber" size="2" maxlength="2" value="#{xmlBean.userNumber}" />
     <h:commandButton id="submit" value="submit" action="response" />
 </h:form>
         <h:form enctype="multipart/form-data">
-    <h:inputFile value="#{XMLBean.file}">
-        <f:ajax listener="#{XMLBean.save}" />
+    <h:inputFile value="#{xmlBean.file}">
+        <f:ajax listener="#{xmlBean.save}" />
     </h:inputFile>
               <h:commandButton value="Upload"
-      action="#{XMLBean.upload}"/>
+      action="#{xmlBean.upload}"/>
 </h:form>
     </h:body>
 </html>
