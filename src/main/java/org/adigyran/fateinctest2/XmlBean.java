@@ -14,6 +14,7 @@ import javax.ejb.Startup;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.servlet.http.Part;
+import javax.swing.text.Document;
 
 /**
  *
@@ -64,14 +65,15 @@ public class XmlBean implements Serializable{
       // Error handling
     }
   }
-  public void save() {
+  public void save() throws Exception {
     try {
       fileContent = new Scanner(file.getInputStream()).useDelimiter("\\A").next();
         System.out.println("org.adigyran.fateinctest2.XmlBean.save()");
         System.out.println(file.getSize());
         System.out.println(file.getName());
         System.out.println(fileContent);
-    
+        Document XMLDocument = XMLparser.loadXMLFromString(fileContent);
+        System.out.println(XMLDocument.getDefaultRootElement().getName());
     } catch (IOException e) {
       // Error handling
     }
